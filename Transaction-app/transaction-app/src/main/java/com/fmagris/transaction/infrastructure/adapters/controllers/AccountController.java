@@ -21,7 +21,7 @@ import com.fmagris.transaction.domain.ports.in.MovementsPortIn;
 
 
 @RestController
-@RequestMapping("api-homebanking/account")
+@RequestMapping("/api-homebanking/account/")
 public class AccountController {
 	
 	@Autowired
@@ -30,8 +30,8 @@ public class AccountController {
 	@Autowired
 	private MovementsPortIn movementsPortIn;
 	
-
-	@GetMapping(value="/find_cbu_{accountCbu}")
+	
+	@GetMapping(value="find_cbu_{accountCbu}")
 	public ResponseEntity<Account> getAcountByCbu(@PathVariable(name = "accountCbu") Long accountCbu) throws Exception{
 		
 		Account account = accountPortIn.getAcountByCbu(accountCbu);
@@ -40,7 +40,7 @@ public class AccountController {
 	
 	
 	
-	@GetMapping(value="/movements/{cbu}/{dateFrom}/{dateTo}")
+	@GetMapping(value="movements/{cbu}/{dateFrom}/{dateTo}")
 	public ResponseEntity<List<Movements>> getAccountMovements(@PathVariable(value="cbu") Long cbu,
 														@PathVariable(name = "dateFrom") Long dateFrom,
 														@PathVariable(name="dateTo") Long dateTo) throws Exception{

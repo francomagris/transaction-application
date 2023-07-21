@@ -14,7 +14,7 @@ import com.fmagris.transaction.domain.ports.in.SaveTransactionPortIn;
 
 
 @RestController
-@RequestMapping("api-homebanking/transaction")
+@RequestMapping("api-homebanking/transaction/")
 public class TransacrionController {
 	@Autowired
 	private SaveTransactionPortIn transactionPort;
@@ -26,7 +26,7 @@ public class TransacrionController {
 			transactionPort.saveTransaction(transaction);
 			return new ResponseEntity<String>("Transaction succesfull" , HttpStatus.OK );
 		}catch(Exception e) {
-			return new ResponseEntity<String>("There was a problem with the transaction", HttpStatus.INTERNAL_SERVER_ERROR );
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR );
 		}
 	}
 	
