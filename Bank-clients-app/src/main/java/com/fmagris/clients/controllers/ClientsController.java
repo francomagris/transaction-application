@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fmagris.clients.models.Client;
@@ -22,6 +23,7 @@ public class ClientsController {
 	private ClientsService service;
 	
 	@GetMapping("find_{username}")
+	@ResponseBody
 	public ResponseEntity<?> findClient(@PathVariable(name="username") String username) {
 		try {
 			Client cli = service.getClientByUsername(username);

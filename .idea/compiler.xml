@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="bank-clients-app" />
+        <module name="gateway-server-app" />
+        <module name="transaction-app" />
+        <module name="eureka" />
+        <module name="oauth-service-app" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="oauth" target="17" />
+      <module name="oauth-service" target="17" />
+      <module name="springboot-service-oauth" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="bank-clients-app" options="-parameters" />
+      <module name="eureka" options="-parameters" />
+      <module name="gateway-server-app" options="-parameters" />
+      <module name="oauth" options="-parameters" />
+      <module name="oauth-service" options="-parameters" />
+      <module name="oauth-service-app" options="-parameters" />
+      <module name="springboot-service-oauth" options="-parameters" />
+      <module name="transaction-app" options="-parameters" />
+    </option>
+  </component>
+</project>

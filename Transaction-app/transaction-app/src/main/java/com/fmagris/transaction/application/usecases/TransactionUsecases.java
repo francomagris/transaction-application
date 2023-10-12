@@ -96,7 +96,8 @@ public class TransactionUsecases implements SaveTransactionPortIn{
 		accountPort.updateAccount(sender);
 		
 		// Update recipient account balance
-		recipient.credit( transactionUtils.calculateTranasctionAmount(transactionType, transaction.getAmount()) );
+		Double recipientAmount = transactionUtils.calculateTranasctionAmount(transactionType, transaction.getAmount());
+		recipient.credit( recipientAmount );
 		accountPort.updateAccount(recipient);
 		
 		// Add sender movement
@@ -108,7 +109,7 @@ public class TransactionUsecases implements SaveTransactionPortIn{
 		// Add recipient movement
 		movementsPort.saveMovements(Movements.builder()
 											.account(recipient)
-											.amount(transaction.getAmount())
+											.amount(recipientAmount)
 											.date(new Date())
 											.build());
 	

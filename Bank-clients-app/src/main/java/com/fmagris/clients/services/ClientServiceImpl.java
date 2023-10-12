@@ -9,6 +9,7 @@ import com.fmagris.clients.models.exceptions.ClientNotFoundException;
 import com.fmagris.clients.repository.ClientRepository;
 
 import jakarta.persistence.PersistenceException;
+import jakarta.transaction.Transactional;
 
 @Service
 public class ClientServiceImpl implements ClientsService{
@@ -17,6 +18,7 @@ public class ClientServiceImpl implements ClientsService{
 	ClientRepository repo;
 
 	@Override
+	@Transactional
 	public Client getClientByUsername(String username) throws ClientNotFoundException{
 		return repo.findClientByUsername(username).orElseThrow(()-> new ClientNotFoundException("Client username not found"));
 	}
